@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paperwork Finder</title>
+</head>
+
+<body>
+    <h1>Paperwork Finder</h1>
+
+    <form id="paperworkForm">
+        <label for="shipmentType">Shipment Type:</label>
+        <input type="text" id="shipmentType" name="shipmentType" required><br><br>
+
+        <label for="commodity">Commodity:</label>
+        <input type="text" id="commodity" name="commodity" required><br><br>
+
+        <label for="weight">Weight (KGS):</label>
+        <input type="number" id="weight" name="weight" required><br><br>
+
+        <button type="submit">Find Paperwork</button>
+    </form>
+
+    <div id="results"></div>
+
+
+
+    <script>
+        // Dummy data for paperwork requirements
+        const data = [
+            { shipmentType: 'Air Freight', commodity: 'Electronics', minWeight: 0, maxWeight: 5, paperwork: 'Airway Bill, Commercial Invoice' },
+            { shipmentType: 'Sea Freight', commodity: 'Textiles', minWeight: 10, maxWeight: 20, paperwork: 'Bill of Lading, Packing List' },
+            // Add more data as needed
+        ];
+
+        // Function to filter data based on user input
+        function findPaperwork() {
+            const shipmentType = document.getElementById('shipmentType').value;
+            const commodity = document.getElementById('commodity').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            const results = data.filter(item => {
+                return (
+                    item.shipmentType.toLowerCase() === shipmentType.toLowerCase() &&
+                    item.commodity.toLowerCase() === commodity.toLowerCase() &&
+                    weight >= item.minWeight &&
+                    weight <= item.maxWeight
+                );
+            });
+
+            displayResults(results);
+        }
+
+        // Function to display results
+        function displayResults(results) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (results.length === 0) {
+                resultsDiv.textContent = 'No paperwork found for the specified criteria.';
+            } else {
+                const ul = document.createElement('ul');
+                results.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `Shipment Type: ${item.shipmentType}, Commodity: ${item.commodity}, Weight Range: ${item.minWeight} - ${item.maxWeight} KGS, Required Paperwork: ${item.paperwork}`;
+                    ul.appendChild(li);
+                });
+                resultsDiv.appendChild(ul);
+            }
+        }
+
+        // Event listener for form submission
+        const paperworkForm = document.getElementById('paperworkForm');
+        paperworkForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            findPaperwork();
+        });
+
+    </script>
+
+    <script src="paperworkFinder.js"></script>
+</body>
+
+</html>

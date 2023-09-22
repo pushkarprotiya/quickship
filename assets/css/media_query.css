@@ -1,0 +1,50 @@
+@media screen and (max-width: 768px) {
+    #drop {
+        margin-top: 0;
+    }
+
+    .navbar .nav-item .nav-link {
+        margin-left: 0;
+    }
+
+    .banner .box {
+        width: 100%;
+    }
+    .login form input{
+        width: 300px;
+    }
+    .login form button{
+        width: 300px;
+    }
+    .login span{
+        font-size: 0.6rem;
+    }
+    #add-btn{
+        width: 100%;
+    }
+    #oda_container{
+        width: 100% !important;
+    }
+    #oda_btn{
+        font-size: 0.5rem;
+    }
+    #oda_container span{
+        font-size: 0.5rem;
+    }
+    #paperwork_container{
+        width: 100% !important;
+    }
+    #paperwork_container span{
+        font-size: 0.5rem;
+    }
+    #paperwork_btn{
+        font-size: 0.4rem;
+    }
+
+}
+
+@media only screen and (min-width: 1170px) {
+    .bts-popup-container {
+        margin: 8em auto;
+    }
+}

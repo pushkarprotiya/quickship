@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ODA Finder</title>
+</head>
+<body>
+    <h1>On-Demand Availability Finder</h1>
+    
+    <!-- Input Fields -->
+    <label for="country">Country:</label>
+    <input type="text" id="country" placeholder="Enter Country">
+
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" placeholder="Enter Pincode">
+
+    <label for="weight">Weight (KGS):</label>
+    <input type="number" id="weight" placeholder="Enter Weight">
+
+    <button onclick="searchODA()">Search</button>
+
+    <!-- Results -->
+    <div id="results">
+        <!-- Results will be displayed here -->
+    </div>
+
+    <script>
+        // Sample data (you can replace this with your own data)
+        const data = [
+            { country: "USA", pincodeStart: 10000, pincodeEnd: 19999, weightMin: 0, weightMax: 5, availability: "Available" },
+            { country: "Canada", pincodeStart: 20000, pincodeEnd: 29999, weightMin: 0, weightMax: 10, availability: "Available" },
+            { country: "UK", pincodeStart: 30000, pincodeEnd: 39999, weightMin: 0, weightMax: 8, availability: "Available" },
+            // Add more data here
+        ];
+
+        function searchODA() {
+            const country = document.getElementById("country").value;
+            const pincode = parseInt(document.getElementById("pincode").value);
+            const weight = parseFloat(document.getElementById("weight").value);
+
+            // Filter data based on user input
+            const filteredData = data.filter(item => 
+                item.country.toLowerCase() === country.toLowerCase() &&
+                pincode >= item.pincodeStart && pincode <= item.pincodeEnd &&
+                weight >= item.weightMin && weight <= item.weightMax
+            );
+
+            // Display results
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = "";
+
+            if (filteredData.length === 0) {
+                resultsContainer.innerHTML = "<p>No results found.</p>";
+            } else {
+                filteredData.forEach(item => {
+                    resultsContainer.innerHTML += `<p>${item.country} - Availability: ${item.availability}</p>`;
+                });
+            }
+        }
+    </script>
+</body>
+</html>

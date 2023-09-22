@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .nav-item .nav-link {
+    font-size: 13px;
+    font-weight: 900;
+    color: gray;
+    margin-left: 15px;
+    transition: 0.4s;
+}
+
+.navbar .nav-item .nav-link:hover {
+    color: #f26e13;
+}
+
+#drop {
+    margin-top: 30px;
+}
+
+#drop .dropdown-item {
+    font-weight: 500;
+    color: gray;
+    font-size: 15px;
+}
+
+/* banner section */
+
+.banner {
+    background-color: black;
+    width: 100%;
+}
+
+.banner video {
+    width: 100%;
+}
+
+.banner .box {
+    width: 50%;
+    margin: auto;
+}
+
+/* tracking section */
+
+.card1 {
+    width: 100%;
+    /* background-color: aqua; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.but {
+    border: none;
+    padding: 10px;
+    background-color: #f26e13;
+    color: white;
+}
+
+.card1 h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    line-height: 27px;
+    margin: 0 0 14px 0;
+}
+
+.card1 p {
+    font-size: 13px;
+    font-weight: 800;
+    color: gray;
+}
+
+/* CUSTOMER TESTIMONIALS */
+
+.testimonial-back {
+    background-color: #eeeeee;
+}
+
+.testimonials {
+    /* height: 270px; */
+    padding: 10px;
+    /* width: 400px; */
+    background-color: white;
+    /* border: 1px solid gray; */
+    border-radius: 20px;
+    /* box-shadow: 2px 2px 6px; */
+}
+
+.clip {
+    clip-path: polygon(36% 0, 30% 100%, 97% 1%);
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    margin-left: 20px;
+}
+
+.star i {
+    color: rgb(255, 247, 0);
+    /* margin-left: 20px; */
+    margin-top: 10px;
+    font-size: 0.5rem;
+}
+
+.testimonials .content em {
+    font-size: 0.6rem;
+}
+
+.testimonials i {
+    color: grey;
+}
+
+.testimonial-back .user h5 {
+    font-weight: 800;
+    color: grey;
+    font-size: 0.8rem;
+}
+
+
+/* vision banner section */
+
+.vision-banner {
+    background: linear-gradient(to right, #f26e13, #f8883d);
+    color: white;
+}
+
+.vision-banner em {
+    font-size: 20px;
+}
+
+.vision-banner h3 {
+    font-size: 26px;
+}
+
+/* footer section */
+
+footer {
+    background-color: black;
+}
+
+footer h5 {
+    color: white;
+    font-size: 16px;
+}
+
+footer .footer-cont ul {
+    list-style: none;
+    color: grey;
+    padding: 0;
+}
+
+footer .footer-cont ul li {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 14px;
+}
+
+footer .footer-cont ul li a i {
+    color: white;
+    margin-right: 20px;
+}
+
+footer .footer-cont ul li a {
+    text-decoration: none;
+    color: gray;
+}
+
+/* whatsapp icon */
+
+.btn-whatsapp-pulse {
+    background: #25d366;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    padding: 35px;
+    text-decoration: none;
+    border-radius: 50%;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+.btn-phone {
+    background: #1daffa;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    padding: 35px;
+    text-decoration: none;
+    border-radius: 50%;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+.btn-phone i {
+    font-size: 1.6rem;
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+
+    80% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+}
+
+.btn-whatsapp-pulse-border {
+    bottom: 120px;
+    right: 20px;
+    animation-play-state: paused;
+}
+
+.btn-whatsapp-pulse-border::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    padding: 25px;
+    border: 5px solid #25d366;
+    opacity: 0.75;
+    animation-name: pulse-border;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        padding: 25px;
+        opacity: 0.75;
+    }
+
+    75% {
+        padding: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+/* become an affiliate section */
+
+.affiliate-box {
+    background-color: #f26e13;
+    width: 200px;
+    text-align: center;
+    color: white;
+    padding: 0.4rem;
+    transform: rotate(-90deg);
+    position: fixed;
+    right: -82px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    top: 50%;
+
+}
+
+
+/* auto signup popup */
+
+.container-1 {
+    padding: 40px;
+}
+
+.img-replace {
+    /* replace text with an image */
+    display: inline-block;
+    /* overflow: hidden; */
+    text-indent: 100%;
+    color: transparent;
+    white-space: nowrap;
+}
+
+.bts-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.bts-popup.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bts-popup-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 4em auto;
+    /* background: #a0cff1; */
+    background: white;
+    border-radius: none;
+    text-align: center;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    /* -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+    transform: translateY(-40px); */
+    /* Force Hardware Acceleration in WebKit */
+    /* -webkit-backface-visibility: hidden; */
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    
+}
+
+.bts-popup-container .bts-popup-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+.bts-popup-container .bts-popup-close::before,
+.bts-popup-container .bts-popup-close::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    width: 16px;
+    height: 3px;
+    background-color: black;
+}
+
+.bts-popup-container .bts-popup-close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 8px;
+}
+
+.bts-popup-container .bts-popup-close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 6px;
+    top: 13px;
+}
+
+/* 
+.is-visible .bts-popup-container {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+} */
+
+.container-1 h4 {
+    font-size: 0.8rem;
+}
+
+.container-1 form input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+    /* padding: 10px 30px; */
+    width: 100%;
+    margin-top: 1.8rem;
+    font-size: 0.8rem;
+}
+
+.container-1 form button{
+    background-color: #f8883d;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: white;
+    margin-top: 25px;
+}
+
+.container-1 a{
+    color: black;
+    font-size: 0.6rem;
+    margin-top: 20px;
+    display: block;
+}
+
+
+/* affilite offcanvas */
+
+#offcanvas-form input{
+    border: 1px solid grey;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;    
+    font-size: 0.7rem;
+}
+#offcanvas-form textarea{
+    border: 1px solid grey;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 0.7rem;
+}
+
+#offcanvas-form button{
+    background-color: #f26e13;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 18px;
+}
+
+
+/* ================= login page */
+
+.login{
+    text-align: center;
+}
+
+#login-container{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h2{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.login form input{
+    margin-top: 1rem;
+    width: 400px;
+    padding: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: none;
+    outline: none;
+}
+
+.login form button{
+    background-color: #f26e13;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    width: 400px;
+    margin-top: 0.5rem;
+}
+
+
+/* weight calculator section */
+
+.weight_calculator_bg{
+    background-image: url(../images/banner/bg-subheader.jpg);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.customer_records input{
+    width: 100%;
+    padding: 0.6rem;
+}
+.customer_records_dynamic input{
+    width: 100%;
+    padding: 0.8rem;
+}
+.customer_records a{
+    text-decoration: none;
+    background-color: #25d366;
+    margin-top: 0px;
+    display: block;
+    padding: 15px 10px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+#input-container{
+    /* border: 1px solid black; */
+    width: 100%;
+}
+#input-container input{
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+}
+
+
+/* air express door to door section */
+
+.air_express_bg{
+    background-image: url(../images/banner/full-airbus-cargo-verticla.png);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+.air_express_content p{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+.air_express_contact button{
+    background: none;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 30px;
+    letter-spacing: 3px;
+    transition: 0.8s;
+}
+.air_express_contact button:hover{
+    color: black;
+    background-color: white;
+}
+
+/* internationa express section */
+
+
+.international_express_bg{
+    background-image: url(../images/banner/full-airbus-cargo-verticla.png);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+.international_express p{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+.international_express ul li{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+
+/* domestic services section */
+
+
+.domestic_services_bg{
+    background-image: url(../images/banner/full-airbus-cargo-verticla.png);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+.domestic_services p{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+.domestic_services ul li{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+/* fair & exhibition section */
+
+.fair_exhibition_bg{
+    background-image: url(../images/banner/full-airbus-cargo-verticla.png);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.fair_exhibition_services p{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+.fair_exhibition_services ul li{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+
+/* e-commerece services section */
+
+
+.ecommerce_srv_bg{
+    background-image: url(../images/banner/full-airbus-cargo-verticla.png);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.ecommerce_srv p{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+.ecommerce_srv ul li{
+    color: gray;
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+/* paperwork finder section */
+
+
+.paperwork_find_bg{
+    background-image: url(../images/banner/bg-subheader.jpg);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* oda finder section */
+
+.oda_find_bg{
+    background-image: url(../images/banner/bg-subheader.jpg);
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+

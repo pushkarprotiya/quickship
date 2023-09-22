@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="input-container">
+        <div class="input-row">
+            <!-- <input type="number" class="weight" placeholder="Weight (kg)" />
+            <input type="number" class="volume" placeholder="Volume (m³)" /> -->
+            <input type="number" class="length" placeholder="Enter length" min="1">
+            <input type="number" class="width" placeholder="Enter width" min="1">
+            <input type="number" class="height" placeholder="Enter height" min="1">
+            <input type="number" class="weight" placeholder="Enter weight" min="0.01" step="0.01">
+            <button class="remove-btn">Remove</button>
+        </div>
+    </div>
+    <button id="add-btn">Add Item</button>
+    <div id="total">
+        Total Chargeable Weight: <span id="chargeable-weight">0</span> kg
+    </div>
+    
+    
+
+
+    <script>
+        $(document).ready(function() {
+            // Function to calculate and update the chargeable weight
+            function updateChargeableWeight() {
+                var chargeableWeight = 0;
+                $('.input-row').each(function() {
+                    // var weight = parseFloat($(this).find('.weight').val()) || 0;
+                    // var volume = parseFloat($(this).find('.volume').val()) || 0;
+                    var length = parseFloat($(this).find('.length').val()) || 0;
+                    var width = parseFloat($(this).find('.width').val()) || 0;
+                    var height = parseFloat($(this).find('.height').val()) || 0;
+                    var weight = parseFloat($(this).find('.weight').val()) || 0;
+
+
+                    var dimensionalWeight = (length * width * height) / 5000; // Calculate dimensional weight (kg)
+                    chargeableWeight += Math.max(length, width, height, weight, dimensionalWeight);
+                    
+
+
+                });
+                $('#chargeable-weight').text(chargeableWeight.toFixed(2));
+
+                // const length = parseFloat($(this).find('#length').val()) || 0;
+                // const width = parseFloat($(this).find('#width').val()) || 0;
+                // const height = parseFloat($(this).find('#height').val()) || 0;
+                // const weight = parseFloat($(this).find('#weight').val()) || 0;
+
+                // if (isNaN(length) || isNaN(width) || isNaN(height) || isNaN(weight)) {
+                //     alert("Please enter valid dimensions and weight.");
+                // } else {
+                //     // Calculate chargeable weight (assuming the formula is length x width x height / 5000)
+                //     const chargeable = (length * width * height) / 5000;
+                //     chargeableWeight.textContent = chargeable.toFixed(2);
+                // }
+            }
+        
+            // Add Item
+            $('#add-btn').on('click', function() {
+                var newRow = $('<div class="input-row"><input type="number" class="length" placeholder="Enter length" min="1"> <input type="number" class="width" placeholder="Enter width" min="1"> <input type="number" class="height" placeholder="Enter height" min="1"> <input type="number" class="weight" placeholder="Enter weight" min="0.01" step="0.01"> <button class="remove-btn">Remove</button></div>');
+                $('#input-container').append(newRow);
+            });
+        
+            // Remove Item
+            $('#input-container').on('click', '.remove-btn', function() {
+                $(this).parent().remove();
+                updateChargeableWeight();
+            });
+        
+            // Listen for input changes
+            $('#input-container').on('input', '.length, .width, .height, .weight', function() {
+                updateChargeableWeight();
+            });
+        });
+        </script>
+        
+        
+</body>
+</html>

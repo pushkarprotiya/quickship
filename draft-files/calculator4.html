@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chargeable Weight Calculator</title>
+</head>
+<body>
+    <h1>Chargeable Weight Calculator</h1>
+    <div>
+        <label for="grossWeight">Gross Weight (kg):</label>
+        <input type="number" id="grossWeight" step="0.01">
+    </div>
+    <div>
+        <label for="length">Length (cm):</label>
+        <input type="number" id="length">
+    </div>
+    <div>
+        <label for="width">Width (cm):</label>
+        <input type="number" id="width">
+    </div>
+    <div>
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height">
+    </div>
+    <div>
+        <label for="volumetricFactor">Volumetric Factor:</label>
+        <input type="number" id="volumetricFactor">
+    </div>
+    <button id="calculateButton">Calculate</button>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById("calculateButton").addEventListener("click", function() {
+            var grossWeight = parseFloat(document.getElementById("grossWeight").value);
+            var length = parseFloat(document.getElementById("length").value);
+            var width = parseFloat(document.getElementById("width").value);
+            var height = parseFloat(document.getElementById("height").value);
+            var volumetricFactor = parseFloat(document.getElementById("volumetricFactor").value);
+
+            if (isNaN(grossWeight) || isNaN(length) || isNaN(width) || isNaN(height) || isNaN(volumetricFactor)) {
+                document.getElementById("results").innerHTML = "Please enter valid values for all fields.";
+            } else {
+                var volumetricWeight = (length * width * height) / 5000;
+                var chargeableWeight = Math.max(grossWeight, volumetricWeight * volumetricFactor);
+                document.getElementById("results").innerHTML = "<strong>Gross Weight:</strong> " + grossWeight.toFixed(2) + " kg<br>" +
+                    "<strong>Volumetric Weight:</strong> " + volumetricWeight.toFixed(2) + " kg<br>" +
+                    "<strong>Chargeable Weight:</strong> " + chargeableWeight.toFixed(2) + " kg";
+            }
+        });
+    </script>
+</body>
+</html>

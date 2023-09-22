@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    
+<!-- weight calculator content section -->
+
+<div class="container pt-5 pb-5">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="form-group">
+
+                <table class="table table-bordered table-hover" id="dynamic_field">
+                    <tr id="row1">
+                        <td><input type="text" placeholder="Weight" class="form-control name_list" id="weight" /></td>
+                        <td><input type="text" placeholder="Length" class="form-control name_email" id="length" /></td>
+                        <td><input type="text" placeholder="Breadth" class="form-control total_amount" id="width" />
+                        </td>
+                        <td><input type="text" placeholder="Height" class="form-control total_amount" id="height" />
+                        </td>
+                        <td><button type="button" name="add" id="add" class="btn btn-primary">Add More</button>
+                        </td>
+                    </tr>
+                </table>
+                <input type="button" class="btn btn-success" name="submit" id="calculate-btn" value="Submit">
+
+            </div>
+            <div class="result">
+                <p>Chargeable Weight:</p>
+                <span id="chargeable-weight">-</span> kg
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+
+    <script>
+        //   weight calculator dynamic add section
+
+        $(document).ready(function () {
+
+            var i = 1;
+            var length;
+            //var addamount = 0;
+            var addamount = 700;
+
+            $("#add").click(function () {
+
+                addamount += 700;
+                console.log('amount: ' + addamount);
+                i++;
+                $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" placeholder="Weight" class="form-control" id="weight"/></td><td><input type="text" placeholder="Length" class="form-control" id="length"/></td>    <td><input type="text" placeholder="Breadth" class="form-control" id="width"/></td> <td><input type="text" placeholder="Height" class="form-control" id="height"/></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+            });
+
+            $(document).on('click', '.btn_remove', function () {
+                addamount -= 700;
+                console.log('amount: ' + addamount);
+
+                var button_id = $(this).attr("id");
+                $('#row' + button_id + '').remove();
+            });
+
+
+
+            $("#submit").on('click', function (event) {
+                var formdata = $("#add_name").serialize();
+                console.log(formdata);
+
+                event.preventDefault()
+
+                $.ajax({
+                    url: "action.php",
+                    type: "POST",
+                    data: formdata,
+                    cache: false,
+                    success: function (result) {
+                        alert(result);
+                        $("#add_name")[0].reset();
+                    }
+                });
+
+            });
+            $('#calculate-btn').click(function () {
+                const chargeableWeight = document.getElementById("chargeable-weight");
+                const lastRow = $('#row' + i);
+                const weight = lastRow.find('#weight').val();
+                const length = lastRow.find('#length').val();
+                const width = lastRow.find('#width').val();
+                const height = lastRow.find('#height').val();
+                const chargeable = (length * width * height) / 5000;
+                chargeableWeight.textContent = chargeable.toFixed(2);
+
+            })
+        });
+    </script>
+
+
+    <script src="bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODA Finder</title>
+</head>
+<body>
+    <h1>ODA Finder</h1>
+    <form id="odaForm">
+        <label for="country">Country:</label>
+        <input type="text" id="country" required><br><br>
+
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" required><br><br>
+
+        <label for="weight">Weight (KGS):</label>
+        <input type="number" id="weight" required><br><br>
+
+        <button type="submit">Find ODA</button>
+    </form>
+
+    <div id="odaResult">
+        <!-- ODA results will be displayed here -->
+    </div>
+
+    <script>
+        // Sample ODA data (in a real application, this would come from a server)
+        const odaData = [
+            {
+                country: 'USA',
+                pincode: '10001',
+                courier: 'UPS',
+                charge: 10
+            },
+            {
+                country: 'Canada',
+                pincode: 'M5V 2L4',
+                courier: 'FedEx',
+                charge: 15
+            },
+            {
+                country: 'UK',
+                pincode: 'EC1A 1BB',
+                courier: 'DHL',
+                charge: 12
+            }
+            // Add more ODA data here...
+        ];
+
+        // Function to find ODA based on input
+        function findODA(country, pincode, weight) {
+            for (const oda of odaData) {
+                if (oda.country === country && oda.pincode === pincode) {
+                    const charge = weight * oda.charge;
+                    return { courier: oda.courier,charge };
+                }
+            }
+            return null;
+        }
+
+        // Form submission handler
+        document.getElementById('odaForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const country = document.getElementById('country').value;
+            const pincode = document.getElementById('pincode').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            const oda = findODA(country, pincode, weight);
+
+            if (oda) {
+                document.getElementById('odaResult').innerHTML = `
+                    <p>Courier: ${oda.courier}</p>
+                    <p>Charge: $${oda.charge.toFixed(2)}</p>
+                `;
+            } else {
+                document.getElementById('odaResult').innerHTML = '<p>No ODA found for the given input.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
